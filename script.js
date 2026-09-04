@@ -175,7 +175,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "2708";
+        const SECRET_PIN = "1711";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -561,6 +561,13 @@ async function mulaiKetikanBerurutan(slideTarget) {
             await new Promise(resolve => setTimeout(resolve, 400));
         }
     }
+
+    // Fade in pulsating heart after typing is done
+    const heart = slideTarget.querySelector('.pulsating-heart');
+    if (heart) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        heart.classList.add('heart-visible');
+    }
 }
 
 function ketikTeks(elemen, teks) {
@@ -772,7 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             canvas.width = 220;
-            canvas.height = Math.round(220 * 16 / 9);
+            canvas.height = Math.round(220 * 4 / 3);
 
             ctx.fillStyle = '#0a0a0a';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
